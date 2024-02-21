@@ -14,19 +14,18 @@
 
 <body id="body">
     <main>
-        <div id="form">
-            <input type="text" placeholder="Nome" value="" id="name">
-            <input type="text" placeholder="km" value="" id="km">
+        <form action="">
+            <input type="text" name="name" value="" id="name">
+            <input type="text" name="km" value="" id="km">
             <select id="age">
-                <option value="adulto">Adulto</option>
-                <option value="under18">Under 18</option>
-                <option value="over65">Over 65</option>
+                <option value="adult">Adulto</option>
+                <option value="minor">Under 18</option>
+                <option value="senior">Over 65</option>
             </select>
-            <button type="submit" id="calc">Genera</button>
-        </div>
-        <div>
-            <div id="output-name"></div>
-            <div id="output-price"></div>
+            <button type="submit">Genera</button>
+        </form>
+        <div class="ticket">
+
         </div>
     </main>
     <script src="./assets/js/main.js"></script>

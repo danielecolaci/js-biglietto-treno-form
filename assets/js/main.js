@@ -1,33 +1,79 @@
-document.getElementById("form").addEventListener("calc", function (event) {
+//Name
+const nameElement = document.getElementById('name');
+console.log(nameElement);
 
-    //Name
-    const input = document.getElementById('name');
+//Km
+const kmElement = document.getElementById('km');
+console.log(kmElement);
 
-    //Km
-    let km = document.getElementById('km');
+//Age
+const ageElement = document.getElementById('age');
+console.log(ageElement);
 
-    //Età
-    let age = document.getElementById('age');
+const ticketElement = document.querySelector('.ticket');
+
+
+document.querySelector("form").addEventListener('submit', function (e) {
+
+    console.log(e.preventDefault());
+
+
+    const name = nameElement.value;
+
+    const km = kmElement.value;
+
+    const age = ageElement.value;
+
+    console.log(name, km, age);
+
 
     //Prezzo biglietto
+    let discount = 'standard';
     let price = km * 0.21;
 
     //Sconto
-    let final_price;
-
-    if (age === 'under18') {
-        final_price = (price * 0.8).toFixed(2);
+    if (age === 'minor') {
+        console.log('apply 20% off');
+        finalPrice = (price * 0.8).toFixed(2);
+        discount = '20% off';
     }
-    else if (age === 'over65') {
-        final_price = (price * 0.6).toFixed(2);
+    else if (age === 'senior') {
+        finalPrice = (price * 0.6).toFixed(2);
+        console.log('apply 40% off');
+        discount = '40% off';
     }
     else {
-        final_price = price.toFixed(2);
+        finalPrice = price.toFixed(2);
     }
 
+    console.log(finalPrice, discount, name);
+
+
+    const cpCode = Math.floor((Math.random() * 90000) + 50000);
+    const wNumber = Math.floor((Math.random() * 10) + 1);
+
+    console.log(cpCode, wNumber);
+
+
+    const markup = `
+        <div class="card">
+            <div>Nome Passeggero: ${name}</div>
+            <div>Sconto: ${discount}</div>
+            <div>Prezzo: ${finalPrice}</div>
+            <div>CPcode: ${cpCode}</div>
+            <div>Vagone n. ${wNumber}</div>
+        </div>
+    `
+
+    ticketElement.innerHTML = markup
+
+
+
+
+    /* 
     const name = document.getElementById('name').value;
     document.getElementById('output-name').innerHTML = name;
-
+ 
     document.getElementById("output-price").innerHTML = final_price;
-
+ */
 });
