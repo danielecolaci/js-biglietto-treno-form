@@ -56,16 +56,17 @@ document.querySelector("form").addEventListener('submit', function (e) {
 
 
     const markup = `
-        <div class="card">
+        <div class="card my-3">
             <div>Nome Passeggero: ${name}</div>
             <div>Sconto: ${discount}</div>
-            <div>Prezzo: ${finalPrice}</div>
-            <div>CPcode: ${cpCode}</div>
-            <div>Vagone n. ${wNumber}</div>
+            <div>Prezzo: ${finalPrice}€</div>
+            <div><b>CP</b>${cpCode}</div>
+            <div>Carrozza n. ${wNumber}</div>
         </div>
     `
 
-    ticketElement.innerHTML = markup
+    ticketElement.insertAdjacentHTML('beforeend', markup)
+
 
 
 
