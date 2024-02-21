@@ -56,13 +56,15 @@ document.querySelector("form").addEventListener('submit', function (e) {
 
 
     const markup = `
-        <div class="card my-3">
-            <div>Nome Passeggero: ${name}</div>
-            <div>Sconto: ${discount}</div>
-            <div>Prezzo: ${finalPrice}€</div>
-            <div><b>CP</b>${cpCode}</div>
-            <div>Carrozza n. ${wNumber}</div>
-        </div>
+        <table class="card table my-3 p-5 d-flex text-center gap-5 rounded-5">
+            <tr class="d-flex gap-5 justify-content-evenly mx-5 flex-wrap">
+                <th class="table-primary border-0 rounded-4 px-5">Nome Passeggero<br><i>${name}</i></th>
+                <td class="border-0">Sconto<br><b>${discount}</b></td>
+                <td class="border-0">Prezzo<br><b>${finalPrice}€</b></td>
+                <td class="border-0">Codice Biglietto<br>CP<b>${cpCode}</b></td>
+                <td class="border-0">Info Posto<br>Carrozza n.<b>${wNumber}</b></td>
+            </tr>
+        </table>
     `
 
     ticketElement.insertAdjacentHTML('beforeend', markup)
